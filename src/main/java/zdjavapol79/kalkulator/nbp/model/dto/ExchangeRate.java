@@ -1,4 +1,4 @@
-package zdjavapol79.kalkulator.nbp;
+package zdjavapol79.kalkulator.nbp.model.dto;
 
 import java.util.List;
 

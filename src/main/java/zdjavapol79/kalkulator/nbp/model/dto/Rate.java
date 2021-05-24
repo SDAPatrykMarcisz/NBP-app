@@ -1,4 +1,4 @@
-package zdjavapol79.kalkulator.nbp;
+package zdjavapol79.kalkulator.nbp.model.dto;
 
 public class Rate {
     private String currency;

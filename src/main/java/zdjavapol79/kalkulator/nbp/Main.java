@@ -2,14 +2,13 @@ package zdjavapol79.kalkulator.nbp;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.List;
+import zdjavapol79.kalkulator.nbp.model.dto.ExchangeRate;
 
 public class Main {
     public static void main(String[] args) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         ExchangeRate[] rate = objectMapper.readValue(json, ExchangeRate[].class);
-        System.out.println("koniec");
+        System.out.println(rate[0].getNo());
     }
 
     static String json = "[\n" +
