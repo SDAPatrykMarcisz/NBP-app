@@ -19,6 +19,10 @@ public class ExchangeService {
     public Double convert(String currencyCodeFrom, String currencyCodeTo, Double amount){
         Optional<Double> from = getMidForCurrency(currencyCodeFrom);
         Optional<Double> to = getMidForCurrency(currencyCodeTo);
+        if(from.isPresent()){
+            Double value = from.get();
+        }
+
         throw new UnsupportedOperationException("not implemented yet");
     }
 
