@@ -1,5 +1,6 @@
 package zdjavapol79.kalkulator.nbp.repository;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import zdjavapol79.kalkulator.nbp.model.dto.ExchangeRate;
 
