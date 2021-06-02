@@ -11,11 +11,20 @@ import java.net.http.HttpResponse;
 
 public class NBPClient {
 
-    public ExchangeRate[] downloadExchangeRates(){
+    public ExchangeRate[] downloadExchangeRates() {
+        return callApi("/api/exchangerates/tables/A");
+    }
+
+    public ExchangeRate[] downloadExchangeRateForDay(String date) {
+        return callApi("/api/exchangerates/tables/A/" + date);
+    }
+
+    private ExchangeRate[] callApi(String endpoint) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
-                .uri(URI.create("http://api.nbp.pl/api/exchangerates/tables/A?format=json"))
+                .header("Content-type", "application/json")
+                .uri(URI.create("http://api.nbp.pl/" + endpoint))
                 .build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -30,4 +39,5 @@ public class NBPClient {
         }
         return new ExchangeRate[0];
     }
+
 }
