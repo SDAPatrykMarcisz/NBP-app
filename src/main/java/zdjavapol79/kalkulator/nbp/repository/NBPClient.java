@@ -9,18 +9,19 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 public class NBPClient {
 
-    public ExchangeRate[] downloadExchangeRates() {
-        return callApi("/api/exchangerates/tables/A");
+    public List<ExchangeRate> downloadCurrentExchangeRates(CurrencyTable table) {
+        return callApi("/api/exchangerates/tables/" + table.getTableCode());
     }
 
-    public ExchangeRate[] downloadExchangeRateForDay(String date) {
-        return callApi("/api/exchangerates/tables/A/" + date);
+    public List<ExchangeRate> downloadExchangeRateForDay(CurrencyTable table, String date) {
+        return callApi("/api/exchangerates/tables/" + table.getTableCode() + "/" + date);
     }
 
-    private ExchangeRate[] callApi(String endpoint) {
+    private List<ExchangeRate> callApi(String endpoint) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
@@ -28,17 +29,18 @@ public class NBPClient {
                 .uri(URI.create("http://api.nbp.pl/" + endpoint))
                 .build();
         try {
+            System.out.println("calling endpoint " + endpoint);
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             String json = response.body();
             ObjectMapper mapper = new ObjectMapper();
-            ExchangeRate[] result = mapper.readValue(json, ExchangeRate[].class);
+            List<ExchangeRate> result = mapper.readValue(json, new TypeReference<>() {});
             return result;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
-        return new ExchangeRate[0];
+        throw new RuntimeException("Exchange rate not found");
     }
 
 }
