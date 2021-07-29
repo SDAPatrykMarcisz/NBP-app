@@ -1,7 +1,10 @@
 package zdjavapol79.kalkulator.nbp.model.dto;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class ExchangeRate {
 
     private String table;

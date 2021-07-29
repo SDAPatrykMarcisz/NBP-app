@@ -1,17 +1,17 @@
-package zdjavapol79.kalkulator.nbp.repository;
+package zdjavapol79.kalkulator.nbp.repository.nbp;
 
 import java.util.HashMap;
 import java.util.Optional;
 
-public class NBPDatabaseRepository {
+public class NBPDatabaseRepositoryOld {
 
     private HashMap<String, Double> courses;
 
-    public NBPDatabaseRepository(){
+    public NBPDatabaseRepositoryOld(){
         this.courses = new HashMap<>();
     }
 
-    public NBPDatabaseRepository(HashMap<String, Double> courses){
+    public NBPDatabaseRepositoryOld(HashMap<String, Double> courses){
         this.courses = courses;
     }
 

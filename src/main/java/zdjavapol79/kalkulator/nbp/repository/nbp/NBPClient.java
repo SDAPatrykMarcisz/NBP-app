@@ -1,4 +1,4 @@
-package zdjavapol79.kalkulator.nbp.repository;
+package zdjavapol79.kalkulator.nbp.repository.nbp;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +9,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class NBPClient {
@@ -17,8 +19,8 @@ public class NBPClient {
         return callApi("/api/exchangerates/tables/" + table.getTableCode());
     }
 
-    public List<ExchangeRate> downloadExchangeRateForDay(CurrencyTable table, String date) {
-        return callApi("/api/exchangerates/tables/" + table.getTableCode() + "/" + date);
+    public List<ExchangeRate> downloadExchangeRateForDay(CurrencyTable table, LocalDate date) {
+        return callApi("/api/exchangerates/tables/" + table.getTableCode() + "/" + date.format(DateTimeFormatter.ISO_DATE));
     }
 
     private List<ExchangeRate> callApi(String endpoint) {

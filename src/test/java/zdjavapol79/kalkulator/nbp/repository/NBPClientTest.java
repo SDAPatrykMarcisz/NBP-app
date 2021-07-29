@@ -2,9 +2,7 @@ package zdjavapol79.kalkulator.nbp.repository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import zdjavapol79.kalkulator.nbp.model.dto.ExchangeRate;
-
-import static org.junit.jupiter.api.Assertions.*;
+import zdjavapol79.kalkulator.nbp.repository.nbp.NBPClient;
 
 class NBPClientTest {
 
