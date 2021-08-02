@@ -58,8 +58,6 @@ public class FXMain extends Application {
 
     }
 
-    private LocalDateTime lastTypingTime;
-
     @FXML
     public void initialize() {
         resultAmountLabel.setEditable(false);
@@ -70,11 +68,6 @@ public class FXMain extends Application {
 
         currencyAmountLabel.textProperty().addListener(
                 ((observableValue, oldVal, newVal) -> {
-                    if(Objects.isNull(lastTypingTime)){
-                        lastTypingTime = LocalDateTime.now();
-                    }
-                    if(newVal.matches("C=(\\\\d+\\\\.\\\\d+)")) {
-                        lastTypingTime = LocalDateTime.now();
                         CalculationTask task = CalculationTask.builder()
                                 .currencyFrom(sourceCurrencyComboBox.getValue())
                                 .currencyTo(destinationCurrencyComboBox.getValue())
@@ -90,7 +83,7 @@ public class FXMain extends Application {
                         ExecutorService executorService = Executors.newFixedThreadPool(1);
                         executorService.execute(task);
                         executorService.shutdown();
-                    }
+
                 })
         );
 
