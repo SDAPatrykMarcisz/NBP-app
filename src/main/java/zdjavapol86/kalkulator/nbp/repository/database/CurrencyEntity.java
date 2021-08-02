@@ -1,4 +1,4 @@
-package zdjavapol79.kalkulator.nbp.repository.database;
+package zdjavapol86.kalkulator.nbp.repository.database;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Entity
 @Builder
 @Table(name = "currencies")
-public class Currency {
+public class CurrencyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

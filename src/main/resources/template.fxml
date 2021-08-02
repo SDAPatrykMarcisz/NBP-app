@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane fx:controller="zdjavapol86.kalkulator.nbp.ui.javafx.FXMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ComboBox fx:id="sourceCurrencyComboBox" id="source_currency" layoutX="217.0" layoutY="14.0" prefHeight="25.0" prefWidth="174.0" />
+      <ComboBox fx:id="destinationCurrencyComboBox" id="destination_currency" layoutX="217.0" layoutY="50.0" prefHeight="25.0" prefWidth="174.0" />
+      <DatePicker fx:id="exchangeRateDatePicker" id="exchange_rate_date" layoutX="217.0" layoutY="86.0" />
+      <TextField fx:id="currencyAmountLabel" id="currency_amount" layoutX="33.0" layoutY="14.0" />
+      <TextField fx:id="resultAmountLabel" id="result_amount" layoutX="33.0" layoutY="50.0" />
+      <LineChart layoutX="407.0" layoutY="6.0" prefHeight="150.0" prefWidth="693.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</Pane>

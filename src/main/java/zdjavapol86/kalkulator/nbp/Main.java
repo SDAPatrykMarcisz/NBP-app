@@ -1,6 +1,6 @@
-package zdjavapol79.kalkulator.nbp;
+package zdjavapol86.kalkulator.nbp;
 
-import zdjavapol79.kalkulator.nbp.service.ExchangeService;
+import zdjavapol86.kalkulator.nbp.service.ExchangeService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

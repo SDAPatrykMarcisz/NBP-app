@@ -1,4 +1,4 @@
-package zdjavapol79.kalkulator.nbp.repository.nbp;
+package zdjavapol86.kalkulator.nbp.repository.nbp;
 
 public enum CurrencyTable {
     TABLE_A("A"),

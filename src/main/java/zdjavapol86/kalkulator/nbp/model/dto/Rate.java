@@ -1,4 +1,4 @@
-package zdjavapol79.kalkulator.nbp.model.dto;
+package zdjavapol86.kalkulator.nbp.model.dto;
 
 import lombok.Data;
 

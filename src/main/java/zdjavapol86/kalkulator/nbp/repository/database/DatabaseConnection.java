@@ -1,4 +1,4 @@
-package zdjavapol79.kalkulator.nbp.repository.database;
+package zdjavapol86.kalkulator.nbp.repository.database;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

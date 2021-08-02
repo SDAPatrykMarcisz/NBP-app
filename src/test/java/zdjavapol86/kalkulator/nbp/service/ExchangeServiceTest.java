@@ -1,10 +1,16 @@
-package zdjavapol79.kalkulator.nbp.service;
+package zdjavapol86.kalkulator.nbp.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import zdjavapol79.kalkulator.nbp.repository.database.NBPDatabaseRepository;
-import zdjavapol79.kalkulator.nbp.repository.nbp.NBPClient;
+import zdjavapol86.kalkulator.nbp.model.dto.OperationSummary;
+import zdjavapol86.kalkulator.nbp.repository.database.CurrencyEntity;
+import zdjavapol86.kalkulator.nbp.repository.database.NBPDatabaseRepository;
+import zdjavapol86.kalkulator.nbp.repository.nbp.NBPClient;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -35,15 +41,19 @@ class ExchangeServiceTest {
         String currencyTo = "EUR";
 
         Mockito.when(nbpDatabaseRepository.findCourseForCurrencyForDate(any(), any()))
-//                .thenReturn(Optional.of(4.20));
-                .thenReturn(null);
+                .thenReturn(Optional.of(CurrencyEntity.builder().effectiveDate(LocalDate.of(2021,6,1)).avgRate(4.7101).build()));
         //when
         //kod testowany
-        Double result = exchangeService.convert(currencyFrom, currencyTo, 20.0);
+        OperationSummary convert = exchangeService.convert(
+                currencyFrom,
+                currencyTo,
+                20.0,
+                LocalDate.parse("2021-06-01", DateTimeFormatter.ISO_DATE)
+        );
 
         //then
         //asercje na wyniki
-        assertEquals(result, 4.761904761904762);
+        assertEquals(convert.getOperationResult(), "4,246194");
     }
 
 }
