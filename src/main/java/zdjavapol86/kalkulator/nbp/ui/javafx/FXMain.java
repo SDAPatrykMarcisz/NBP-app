@@ -77,13 +77,13 @@ public class FXMain extends Application {
 
                         task.setOnRunning(event -> currencyAmountLabel.setDisable(true));
                         task.setOnSucceeded(event -> {
+                            updateControlls(task.getValue());
                             currencyAmountLabel.setDisable(false);
                             currencyAmountLabel.requestFocus();
                         });
                         ExecutorService executorService = Executors.newFixedThreadPool(1);
                         executorService.execute(task);
                         executorService.shutdown();
-
                 })
         );
 
